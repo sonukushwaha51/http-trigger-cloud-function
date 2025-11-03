@@ -8,9 +8,10 @@ steps:
       - --region=us-central1
       - --runtime=java17
       - --source=.
-      - --entrypoint=com.gcp.labs.http.trigger.cloud.function.HttpTriggerFunction
+      - --entry-point=com.gcp.labs.http.trigger.cloud.function.HttpTriggerFunction
       - --max-instances=1
       - --trigger-http
+      - --vpc-connector=labs-net-1
       - --egress-settings=all
       - --ingress-settings=internal-only
       - --service-account=$_SERVICE_ACCOUNT
