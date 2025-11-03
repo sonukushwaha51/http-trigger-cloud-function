@@ -1,0 +1,17 @@
+steps:
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args:
+      - functions
+      - deploy
+      - http-publisher-function
+      - --no-gen2
+      - --region=us-central1
+      - --runtime=java17
+      - --source=.
+      - --entrypoint=com.gcp.labs.http.trigger.cloud.function.HttpTriggerFunction
+      - --max-instances=1
+      - --trigger-http
+      - --egress-settings=all
+      - --ingress-settings=internal-only
+      - --service-account=$_SERVICE_ACCOUNT
+      - --memory=128MB
