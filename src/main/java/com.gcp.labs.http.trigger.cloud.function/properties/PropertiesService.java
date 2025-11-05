@@ -22,39 +22,4 @@ public class PropertiesService {
         this.properties = properties;
     }
 
-    @Provides
-    @Named("projectId")
-    public String provideProjectId() {
-        return properties.getProperty("projectId");
-    }
-
-    @Provides
-    @Named("region")
-    public String provideRegion() {
-        return properties.getProperty("region");
-    }
-
-    @Provides
-    @Named("pubSubTopic")
-    public String getPubsubTopic() {
-        return properties.getProperty("pubSubTopic");
-    }
-
-    @Provides
-    @Singleton
-    public Properties fetchProperties() {
-        Properties properties = new Properties();
-        try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream("application.properties")) {
-            properties.load(inputStream);
-        } catch (IOException exception) {
-            log.error("Error while reading from properties: {}", exception.getLocalizedMessage(), exception);
-        }
-        return properties;
-    }
-
-    @Provides
-    @Singleton
-    public Publisher publisher() throws IOException {
-        return Publisher.newBuilder(TopicName.of(provideProjectId(), getPubsubTopic())).build();
-    }
 }
