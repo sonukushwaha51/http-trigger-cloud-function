@@ -22,7 +22,7 @@ public class HttpTriggerFunction implements HttpFunction {
 
     private final Publisher publisher;
 
-    public HttpTriggerFunction(Publisher publisher, String projectId, String pubsubTopic) {
+    public HttpTriggerFunction() {
         Injector injector = Guice.createInjector(new PropertiesModule());
         this.publisher = injector.getInstance(Publisher.class);
     }
