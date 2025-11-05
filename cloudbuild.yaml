@@ -11,7 +11,7 @@ steps:
       - --entry-point=com.gcp.labs.http.trigger.cloud.function.HttpTriggerFunction
       - --max-instances=1
       - --trigger-http
-      - --vpc-connector=labs-net-1
+      - --vpc-connector=vpc-us-central1-connector
       - --egress-settings=all
       - --ingress-settings=internal-only
       - --service-account=$_SERVICE_ACCOUNT
