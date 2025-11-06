@@ -14,7 +14,7 @@ steps:
       - --egress-settings=all
       - --ingress-settings=internal-only
       - --service-account=$_SERVICE_ACCOUNT
-      - --memory=128MB
+      - --memory=512MB
 
 options:
   logging: CLOUD_LOGGING_ONLY
