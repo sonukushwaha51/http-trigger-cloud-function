@@ -4,7 +4,6 @@ steps:
       - functions
       - deploy
       - http-publisher-function
-      - --no-gen2
       - --region=us-central1
       - --runtime=java17
       - --source=.
